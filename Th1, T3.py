@@ -1,0 +1,11 @@
+#Make text
+print('#'*9, end='\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#'*9, end='\n\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#'*9, end='\n')
+print('#', '#', sep='\t\t', end='\n')
+print('#', '#', sep='\t\t', end='\n')
