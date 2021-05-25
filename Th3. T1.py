@@ -17,7 +17,7 @@ while answer.lower() == 'yes':
         continue
     else:
         if len(s) < 4:
-            print('Empty String')
+            print('')
         else:
             print(f'Expected Result: {s[:2] + s[-2:]}')
     
