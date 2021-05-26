@@ -7,7 +7,7 @@
 # print(“hello world”)
 # )
 
-# My solve
+# My solution
 
 #Hello world
 
