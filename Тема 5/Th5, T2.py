@@ -15,13 +15,13 @@ first_random_list = []
 second_random_list = []
 
 i = 0
-while i < 11:
+while i < 10:
     random_number_for_first_list = randint(1, 10)
     first_random_list.append(random_number_for_first_list)
     i += 1
     
 i = 0
-while i < 11:
+while i < 10:
     random_number_for_second_list = randint(1, 10)
     second_random_list.append(random_number_for_second_list)
     i += 1
