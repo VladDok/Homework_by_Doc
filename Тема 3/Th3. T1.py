@@ -10,7 +10,7 @@
 
 # Expected Result : 'mymy'
 
-# Sample String: ' x'
+# Sample String: 'x'
 
 # Expected Result: Empty String
 
@@ -39,7 +39,7 @@ while answer.lower() == 'yes':
     if ind == 1:
         continue
     else:
-        if len(s) < 4:
+        if len(s) < 2:
             print('')
         else:
             print(f'Expected Result: {s[:2] + s[-2:]}')
