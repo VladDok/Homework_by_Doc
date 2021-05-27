@@ -13,7 +13,7 @@ from random import randint
 list_of_numbers = []
 
 i = 0
-while i < 11:
+while i < 10:
     random_number = randint(1, 100)
     list_of_numbers.append(random_number)
     i += 1
