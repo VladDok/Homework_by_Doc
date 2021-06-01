@@ -1,9 +1,9 @@
 # Make a program that has some sentence (a string) on input and returns a dict 
 # containing all unique words as keys and the number of occurrences as values. 
 
-print('Hello considered user. This program use for searching keys words \
-      and their amount. You can see example the work this program. Do you \
-      want to use this program for your goals or want to look at example')
+print('Hello considered user. This program use for searching keys words\n
+and their amount. You can see example the work this program. Do you\n
+want to use this program for your goals or want to look at example.')
 
 while True:
     answer_user = input('1 - want to see example\n2 - want to use in my goals\n\
