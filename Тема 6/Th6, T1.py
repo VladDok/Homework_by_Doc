@@ -108,9 +108,3 @@ about bitcoin,” Quigley said.'''
 print('Good day!')
     
         
-            
-    
-    
-
-                
-            
