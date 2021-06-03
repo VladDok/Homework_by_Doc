@@ -28,7 +28,7 @@ def make_operation(operator, *args):
                 i += 1
             else:
                 print('Such operator does not exist. Please, try again!')
-                return None
+                continue
     return print(total)
 
 
