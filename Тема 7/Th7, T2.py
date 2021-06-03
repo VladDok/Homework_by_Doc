@@ -8,9 +8,9 @@
 
 dictionary = {}
 
-def dictionary_for_country(country, capital, d = dictionary):
-    d[country] = capital 
-    return print(d[country])
+def dictionary_for_country(country, capital, dictionary = dictionary):
+    dictionary[country] = capital 
+    return print(dictionary[country])
 
 dictionary_for_country('Ukraine', 'Kiev')
 
