@@ -6,9 +6,9 @@
 # Make the function print out the values of the dictionary to 
 # make sure that it works as intended.
 
+dictionary = {}
 
 def dictionary_for_country(country, capital):
-    dictionary = {}
     dictionary[country] = capital 
     return print(dictionary)
 
