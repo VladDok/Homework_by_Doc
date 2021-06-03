@@ -10,7 +10,7 @@ dictionary = {}
 
 def dictionary_for_country(country, capital):
     dictionary[country] = capital 
-    return print(dictionary)
+    return print(dictionary[country])
 
 dictionary_for_country('Ukraine', 'Kiev')
 
