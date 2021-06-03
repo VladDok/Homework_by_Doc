@@ -29,9 +29,9 @@ def make_operation(operator, *args):
             else:
                 print('Such operator does not exist. Please, try again!')
                 continue
-    return print(total)
+    return total
 
 
-make_operation('+', 7, 7, 2)
-make_operation('-', 5, 5, -10, -20)
-make_operation('*', 7, 6)
+print(make_operation('+', 7, 7, 2))
+print(make_operation('-', 5, 5, -10, -20))
+print(make_operation('*', 7, 6))
