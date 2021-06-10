@@ -13,7 +13,10 @@ class Person():
     def __init__(self, firstname, lastname, age):
         self.firstname = firstname
         self.lastname = lastname
-        self.age = age
+        if type(age) is int and age>0:
+            self.age = age
+        else:
+            raise TypeError('Зверніть увагу на вік.')
         
     def talk(self):
         print('\nПривіт, мене звати ' + self.firstname.title() + ' '
@@ -23,5 +26,3 @@ class Person():
 person = Person('john', 'johson', 26)
 
 person.talk()
-
-
