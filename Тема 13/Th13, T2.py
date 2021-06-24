@@ -10,12 +10,8 @@ def print_smth(r):
         print(word.lower())
     def default():
         print('Даного режиму неіснує.')
-    if r == 'up':
-        return print_up
-    elif r == 'down':
-        return print_down
-    else:
-        return default
+    dictionary = {'up':print_up, 'down':print_down}
+    return dictionary.get(r, default)
         
         
 func =  print_smth('up')
