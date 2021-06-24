@@ -1,13 +1,9 @@
-def sum_of_numbers(x, y, z):
+def sum_of_numbers(x, y, z, a):
     '''Function as experimental'''
     return x+y+z
 
 def check_amount_var(func):
-    try:
-        func()
-        print('Amount of variables = 0' )
-    except TypeError as msg:
-        amount = filter(lambda i: i.isdigit(), msg) 
-        print('Amount of variables = ' + amount)
+    print(f'Amount of variables is {func.__code__.co_argcount}' ) 
+    print(f'They have names: {[name for name in func.__code__.co_varnames]}')
     
-Function.__class__
+    
