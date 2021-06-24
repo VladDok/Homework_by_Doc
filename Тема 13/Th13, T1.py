@@ -1,3 +1,5 @@
+#Write a Python program to detect the number of local variables declared in a function.
+
 def sum_of_numbers(x, y, z, a):
     '''Function as experimental'''
     return x+y+z
