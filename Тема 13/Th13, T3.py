@@ -5,12 +5,7 @@ def remove_negatives(nums):
     return [num for num in nums if num > 0]
 
 def choose_func(nums, func1, func2):
-    nums_new = []
-    for item in nums:
-        if item >= 0:
-            nums_new.append(item)
-        else:
-            pass
+    nums_new = [item for item in nums if item>=0]
     if len(nums_new) == len(nums):
         print(square_nums(nums_new))
     else:
