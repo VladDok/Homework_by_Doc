@@ -1,6 +1,4 @@
-# Imports practice
-
-# Make a directory with 2 modules; make a function in one of them; then import this function in the other module and use that in your script of choice.
+# Pick your solution to one of the exercises in this module. Design tests for this solution and write tests using unittest library. 
 
 from faker import Faker
 import unittest
