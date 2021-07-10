@@ -48,16 +48,27 @@ exist_id = {}
 exist_worker = {}
 
 class NotFoundBoss(Exception):
+    """Специфічна помилка для помилки пошуку id."""
     
     def __str__(self):
         return 'Боса з даним id ненайдено.'
+    
+class NotFoundPlace(Exception):
+    """Помилка при відсутності нових вакансій."""
 
-
+    def __str__(self):
+        return 'Вільних вакансій немає.'
 
 def take_id(name, company='Tesla', data_id=exist_id):
+    """Створення унікального id для кожного працівника."""
     
     if data_id.get(company.title(), False):
         list_id_workers = data_id.get(company.title())
+        lenght_of_list = len(list_id_workers)
+        
+        if lenght_of_list == 100:
+            raise NotFoundPlace
+        
         while True:
             ind = 0
             new_id = randint(1, 100)
@@ -65,10 +76,8 @@ def take_id(name, company='Tesla', data_id=exist_id):
                 if dict_id.get(new_id, False):
                     ind = 1
                     break
-    
             if ind == 1:
                 continue
-            
             else:
                 break
         
@@ -76,6 +85,7 @@ def take_id(name, company='Tesla', data_id=exist_id):
         new_data[new_id] = name
         list_id_workers.append(new_data)
         data_id[company] = list_id_workers
+    
     else:
         data_id[company] = []
         
@@ -90,13 +100,14 @@ def take_id(name, company='Tesla', data_id=exist_id):
     return new_id
 
 def take_worker(id, name, status, company='Tesla', data_workers=exist_worker):
-    
+    """Добавлення усіх працівників у загальний реєстр exist_worker."""
     if data_workers.get(company.title(), False):
         list_workers = data_workers.get(company.title())
         new_worker = {}
         new_worker[status] = [id, name]
         list_workers.append(new_worker)
         data_workers[company.title()] = list_workers
+    
     else:
         new_worker = {}
         new_worker[status] = [id, name]
@@ -108,39 +119,69 @@ def take_worker(id, name, status, company='Tesla', data_workers=exist_worker):
 
 class Boss:
     
+    list_Boss_Workers = []
+    
     def __init__(self, name, company='Tesla'):
         self.name = name.title()
         self.id = take_id(self.name)
         self.company = company.title()
-        self._workers = []
-        Check_id_of_Boss.add_id(self.id)
-        take_worker(self.id, self.name, Boss.__name__)  
-        
+        take_worker(self.id, self.name, Boss.__name__)
+        boss = {}
+        boss[self.id] = []
+        Boss.list_Boss_Workers.append(boss)
+            
     
     def workers(self, id_worker, name_worker):
         data_worker = {}
         data_worker[id_worker] = name_worker
         self._workers.append(data_worker)
     
-        
-class Check_id_of_Boss(Boss):
-    
-    data_id_boss = []
-    
-    def add_id(id_boss):
-        Check_id_of_Boss.data_id_boss.append(id_boss)
+    def __name__(self):
+        return self
 
 
 class Worker:
-    
+
     def __init__(self, name, id_boss, company='Tesla',):
-        if id_boss in Check_id_of_Boss.data_id_boss:
-            self.name = name.title()
-            self.id = take_id(self.name)
-            self.company = company.title()
-            take_worker(self.id, self.name, Worker.__name__)
+        ind = 0
+        for boss in Boss.list_Boss_Workers:
+            for key in boss.keys(): 
+                if id_boss == key:
+                    self.name = name.title()
+                    self.id = take_id(self.name)
+                    self.company = company.title()
+                    take_worker(self.id, self.name, Worker.__name__)
+                    for diction in Boss.list_Boss_Workers:
+                        list_workers = diction.get(id_boss, False)
+                        if type(list_workers) == list:
+                            inf_for_worker = {}
+                            inf_for_worker[self.id] = self.name
+                            list_workers.append(inf_for_worker)
+                            new_diction = {}
+                            new_diction[id_boss] = list_workers
+                    ind = 1
+                    break
+            if ind == 1:
+                break
+                                        
         else:
+            print('Компанія неможе існувати без боса. Створіть його, а потім \
+наймайте працівників.')
             raise NotFoundBoss
-            
-#Добавити можливість добавляти працівників
+
+ 
+# Наймаємо людину, яка буде Босом
+john = Boss('john')
+
+# Дістаємо його id
+id_boss = [id for id in Boss.list_Boss_Workers[0].keys()][0]
+
+# Наймаємо працівника
+rachell = Worker('rachell', id_boss)
+
+# Перевіряємо його наявність в листі
+print(Boss.list_Boss_Workers)
+
+print(exist_id) # Список працівників та їх id (специфічний список для перевірки наявних id)
+print(exist_worker) # Список усіх працівників та їх статус
 
